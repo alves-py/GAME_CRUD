@@ -5,10 +5,10 @@ services:
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: geraldinho
-    ports: 
+      POSTGRES_DB: programming_db
+    ports:
       - "5432:5432"
-    volumes: 
+    volumes:
       - db_data:/var/lib/postgresql/data # connect with linux: sudo psql postgres://myuser:mypassword@localhost:5432/mydatabase
 volumes:
   db_data:
