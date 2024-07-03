@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: geraldinho
+    ports: 
+      - "5432:5432"
+    volumes: 
+      - db_data:/var/lib/postgresql/data # connect with linux: sudo psql postgres://myuser:mypassword@localhost:5432/mydatabase
+volumes:
+  db_data:
