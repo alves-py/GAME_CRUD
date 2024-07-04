@@ -104,19 +104,19 @@ A API estará disponível em http://localhost:3000.
 ## Buscar todos os jogos
 
 ```sh
- GET /games
+ GET /game
 ```
 
 ## Buscar jogo por id
 
 ```sh
- GET /games/:id
+ GET /game/:id
 ```
 
 ## Atualizar um jogo
 
 ```sh
- PUT /games/:id
+ PUT /game/:id
 ```
 
 ## Exemplo de corpo de requisição
@@ -133,5 +133,5 @@ A API estará disponível em http://localhost:3000.
 ## Deletar um jogo
 
 ```sh
- DELETE /games/:id
+ DELETE /game/:id
 ```

@@ -10,8 +10,8 @@ const createGameService = (name, description, genre, platform) => {
   return createGameRepository(name, description, genre, platform);
 };
 
-const updateGameService = (name, description, genre, platform) => {
-  return updateGameRepository(name, description, genre, platform);
+const updateGameService = (id, name, description, genre, platform) => {
+  return updateGameRepository(id, name, description, genre, platform);
 };
 
 const getGamesService = () => {

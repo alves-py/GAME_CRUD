@@ -21,8 +21,14 @@ const updateGame = async (req, res) => {
   const { name, description, genre, platform } = req.body;
   const id = req.params.id;
 
-  await updateGameService(name, description, genre, platform, id);
-  return res.status(204).json();
+  const updatedGame = await updateGameService(
+    id,
+    name,
+    description,
+    genre,
+    platform
+  );
+  return res.status(200).json(updatedGame);
 };
 
 const getGames = async (req, res) => {

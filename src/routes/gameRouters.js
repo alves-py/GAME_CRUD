@@ -1,25 +1,17 @@
 const { Router } = require("express");
 const game = require("../controllers/controllerGame.js");
 const allFieldsGame = require("../schemas/schemasGame.js");
-const validation = require("../middlewares/validation.js");
+const validationGameBody = require("../middlewares/validation.js");
 
 const gameRotas = Router();
 
-gameRotas.get("/", game.listargames);
-gameRotas.get("/:id", game.listargamesID);
+gameRotas.get("/", game.getGames);
+gameRotas.get("/:id", game.getGameID);
 
-gameRotas.post(
-  "/",
-  validation.validationGameBody(allFieldsGame),
-  game.cadastrargame
-);
+gameRotas.post("/", validationGameBody(allFieldsGame), game.createGame);
 
-gameRotas.put(
-  "/:id",
-  validation.validationGameBody(allFieldsGame),
-  game.EditarDadosgame
-);
+gameRotas.put("/:id", validationGameBody(allFieldsGame), game.updateGame);
 
-gameRotas.delete("/:id", validation.validarPedidogame, game.excluirgame);
+gameRotas.delete("/:id", game.deleteGame);
 
 module.exports = gameRotas;
