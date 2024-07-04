@@ -4,6 +4,7 @@ const {
   getGamesService,
   getGameIdService,
   deleteGameService,
+  updateGamePatchService,
 } = require("../service/serviceGame");
 
 const createGame = async (req, res) => {
@@ -49,10 +50,25 @@ const deleteGame = async (req, res) => {
   return res.status(204).json();
 };
 
+const updateGamePath = async (req, res) => {
+  const { name, description, genre, platform } = req.body;
+  const id = req.params.id;
+
+  const updatedGame = await updateGamePatchService(
+    id,
+    name,
+    description,
+    genre,
+    platform
+  );
+  return res.status(200).json(updatedGame);
+};
+
 module.exports = {
   createGame,
   updateGame,
   getGames,
   getGameID,
   deleteGame,
+  updateGamePath,
 };
