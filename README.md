@@ -72,6 +72,12 @@ ISC
    docker-compose up -d
    ```
 
+6. Crie a tabela em seu banco de dados com migration:
+
+   ```sh
+   npm run knex migrate:latest
+   ```
+
 ## Uso
 
 Para iniciar o servidor, execute:
@@ -134,4 +140,18 @@ A API estará disponível em http://localhost:3000.
 
 ```sh
  DELETE /game/:id
+```
+
+## Atualize parcialmente de um jogo
+
+```sh
+ PATCH /game/:id
+```
+
+## Exemplo de corpo de requisição
+
+```sh
+{
+  "name": "Update ONLY Game name",
+}
 ```
