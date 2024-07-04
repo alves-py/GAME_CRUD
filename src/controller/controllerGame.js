@@ -1,62 +1,45 @@
 const {
-  createGame,
-  updateGame,
-  getGames,
-  getGameId,
-  deleteGame,
+  createGameService,
+  updateGameService,
+  getGamesService,
+  getGameIdService,
+  deleteGameService,
 } = require("../service/serviceGame");
 
 const createGame = async (req, res) => {
-  const { descricao, quantidade_estoque, valor, categoria_id } = req.body;
-  const { originalname, mimetype, buffer } = req.file;
-  const produtoCadastrado = await createGame(
-    descricao,
-    quantidade_estoque,
-    valor,
-    categoria_id,
-    originalname,
-    mimetype,
-    buffer
+  const { name, description, genre, platform } = req.body;
+  const createdGame = await createGameService(
+    name,
+    description,
+    genre,
+    platform
   );
-  return res.status(201).json(produtoCadastrado);
+  return res.status(201).json(createdGame);
 };
 
 const updateGame = async (req, res) => {
-  const { descricao, quantidade_estoque, valor, categoria_id } = req.body;
-  const { originalname, mimetype, buffer } = req.file;
+  const { name, description, genre, platform } = req.body;
   const id = req.params.id;
 
-  await updateGame(
-    descricao,
-    quantidade_estoque,
-    valor,
-    categoria_id,
-    id,
-    originalname,
-    mimetype,
-    buffer
-  );
+  await updateGameService(name, description, genre, platform, id);
   return res.status(204).json();
 };
 
 const getGames = async (req, res) => {
-  const { categoria_id } = req.query;
-
-  const produtos = await getGames(categoria_id);
-  return res.status(200).json(produtos);
+  const games = await getGamesService();
+  return res.status(200).json(games);
 };
 
 const getGameID = async (req, res) => {
   const { id } = req.params;
 
-  const produtoID = await getGameId(id);
-  return res.status(200).json(produtoID);
+  const getGameID = await getGameIdService(id);
+  return res.status(200).json(getGameID);
 };
 
 const deleteGame = async (req, res) => {
   const { id } = req.params;
-  console.log(`Chegou aqui`);
-  await deleteGame(id);
+  await deleteGameService(id);
   return res.status(204).json();
 };
 
