@@ -6,6 +6,7 @@ Esta é uma API para gerenciar dados de jogos, construída com Node.js e Postgre
 - [express](https://www.npmjs.com/package/express)
 - [joi](https://www.npmjs.com/package/joi)
 - [knex](https://www.npmjs.com/package/knex)
+- [postgresql](https://www.npmjs.com/package/postgresql)
 
 ## Autor
 
@@ -89,6 +90,12 @@ npm start
 A API estará disponível em http://localhost:3000.
 
 # Endpoints
+
+## Hello world
+
+```sh
+ GET /
+```
 
 ## Criar um jogo
 
